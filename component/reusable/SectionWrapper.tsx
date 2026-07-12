@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import GlassBlur from "./GlassBlur";
+import GlassBlur from "../reusable/GlassBlur";
 
 interface SectionWrapperProps {
   children: ReactNode;

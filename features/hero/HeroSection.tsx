@@ -1,31 +1,14 @@
 import SectionWrapper from "@/component/reusable/SectionWrapper";
 import AnimatedButton from "@/component/reusable/AnimatedButton";
 import Image from "next/image";
-import GlassOverlay from "@/component/ui/GlassOverlay";
+import AmbientBackground from "@/component/reusable/AmbientBackground";
 
 export default function HeroSection() {
   return (
     <>
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Background — gambar/gradient kamu */}
-        <div className="absolute inset-0 opacity-100 mix-blend-screen scale-130">
-          <Image
-            src="https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-[20%_82%] scale-x-[-1]"
-          />
-        </div>
+      <AmbientBackground />
 
-        {/* Backdrop blur murni — inilah yang membuat efek glassy */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/40 via-black/10 to-white/20 backdrop-blur-sm" />
-
-        {/* Fade ke section berikutnya */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
-      </div>
-
-      {/* Tambahkan border-x, border-[#212121], dan pastikan ada max-w-7xl mx-auto agar posisinya di tengah */}
+      {/* KONTEN HERO SECTION (relative z-10 agar berada di ATAS background) */}
       <SectionWrapper className="relative z-10 pt-40 pb-20 px-10 flex flex-col items-center border-x border-[#212121] max-w-7xl mx-auto">
         <div className="w-full flex flex-col items-center text-center">
           <div className="mb-8 flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 bg-white/20 text-[11px] font-semibold tracking-wider text-gray-200 uppercase">
