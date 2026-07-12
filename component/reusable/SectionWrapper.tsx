@@ -1,0 +1,21 @@
+import { ReactNode } from "react";
+import GlassBlur from "./GlassBlur";
+
+interface SectionWrapperProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export default function SectionWrapper({
+  children,
+  className = "",
+}: SectionWrapperProps) {
+  return (
+    <>
+      <GlassBlur />
+      <section className={`w-full max-w-7xl mx-auto ${className}`}>
+        {children}
+      </section>
+    </>
+  );
+}
