@@ -1,6 +1,6 @@
 import Link from "next/link";
-import AnimatedLink from "../reusable/AnimatedLinks";
-import AnimatedButton from "../reusable/AnimatedButton";
+import AnimatedLink from "../reusable/animation/AnimatedLinks";
+import AnimatedButton from "../reusable/animation/AnimatedButton";
 import Image from "next/image";
 import GlassBlur from "../reusable/GlassBlur";
 
@@ -8,6 +8,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 w-full z-50 transition-all duration-300">
       <GlassBlur />
+
       <div className="relative px-10 py-5 max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image
@@ -25,7 +26,7 @@ export default function Navbar() {
           />
         </div>
 
-        <nav className="hidden md:flex items-center gap-4">
+        <nav className="hidden md:flex items-center gap-8">
           <AnimatedLink href="#templates" title="Templates" />
           <AnimatedLink href="#examples" title="Live examples" />
           <AnimatedLink href="#support" title="Support" />

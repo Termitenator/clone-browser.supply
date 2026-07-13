@@ -3,7 +3,7 @@ import Navbar from "@/component/layout/Navbar";
 import { interDisplay, gambetta } from "@/lib/fonts";
 import "./globals.css";
 import NoiseOverlay from "@/component/ui/NoiseOverlay";
-import SmoothScroll from "@/component/reusable/SmoothScroll";
+import SmoothScroll from "@/component/reusable/scroll/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Create Next App",

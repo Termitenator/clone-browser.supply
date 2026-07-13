@@ -1,18 +1,15 @@
 import Image from "next/image";
-import React from "react";
-import GlassOverlay from "@/component/ui/GlassOverlay";
+import GlassOverlay from "../ui/GlassOverlay"; // Aktifkan jika Anda menggunakannya
 
 interface AmbientBackgroundProps {
-  /** URL gambar background */
   src?: string;
-  /** Alt text untuk gambar */
   alt?: string;
-  /** Kelas tinggi untuk container (default: h-[130vh] untuk efek bleed/lewat section) */
   heightClass?: string;
-  /** Posisi objek gambar (default: object-[20%_80%]) */
   objectPosition?: string;
-  /** Opsional: Apakah gambar ini perlu di-load duluan? (true untuk Hero, false untuk section bawah) */
   priority?: boolean;
+  flip?: boolean;
+  fadeDirection?: "top" | "bottom";
+  positionClassName?: string;
 }
 
 export default function AmbientBackground({
@@ -21,10 +18,23 @@ export default function AmbientBackground({
   heightClass = "h-[130vh]",
   objectPosition = "object-[20%_80%]",
   priority = false,
+  flip = true,
+  fadeDirection = "bottom",
+  positionClassName = "top-0 left-0",
 }: AmbientBackgroundProps) {
+  const isBottomFade = fadeDirection === "bottom";
+
+  const maskGradient = isBottomFade
+    ? "linear-gradient(to bottom, black 60%, transparent 100%)"
+    : "linear-gradient(to top, transparent 0%, black 25%, black 75%, transparent 100%)";
+
   return (
     <div
-      className={`absolute top-0 left-0 w-full ${heightClass} z-0 pointer-events-none`}>
+      className={`absolute ${positionClassName} w-full ${heightClass} z-0 pointer-events-none`}
+      style={{
+        maskImage: maskGradient,
+        WebkitMaskImage: maskGradient,
+      }}>
       <div className="absolute inset-0 opacity-100 mix-blend-screen scale-[1.3]">
         <Image
           src={src}
@@ -32,12 +42,23 @@ export default function AmbientBackground({
           fill
           priority={priority}
           sizes="100vw"
-          className={`object-cover scale-x-[-1] ${objectPosition}`}
+          className={`object-cover ${flip ? "scale-x-[-1]" : ""} ${objectPosition}`}
         />
       </div>
+
       <GlassOverlay />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-white/50 backdrop-blur-sm" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
+
+      {isBottomFade ? (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-white/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
+        </>
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-white/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
+        </>
+      )}
     </div>
   );
 }

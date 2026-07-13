@@ -13,19 +13,19 @@ export default function GlassOverlay({
 }: GlassOverlayProps) {
   return (
     <div className={`absolute inset-0 pointer-events-none ${className}`}>
-      {/* Blur + tint utama */}
       <div
         className="absolute inset-0"
         style={{
           backdropFilter: `blur(${blur}px)`,
           WebkitBackdropFilter: `blur(${blur}px)`,
           background: `rgba(255,255,255,${tintOpacity})`,
+          transform: "translateZ(0)", // Memaksa layer baru untuk performa lebih baik
+          willChange: "transform",
         }}
       />
 
       {withHighlight && (
         <>
-          {/* Highlight tipis di tepi atas */}
           <div
             className="absolute inset-x-0 top-0 h-px"
             style={{
@@ -34,7 +34,6 @@ export default function GlassOverlay({
             }}
           />
 
-          {/* Inner shadow — kedalaman */}
           <div
             className="absolute inset-0"
             style={{

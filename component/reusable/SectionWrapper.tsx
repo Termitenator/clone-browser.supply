@@ -13,8 +13,8 @@ export default function SectionWrapper({
   return (
     <>
       <GlassBlur />
-      <section className={`w-full max-w-7xl mx-auto ${className}`}>
-        {children}
+      <section className="w-full px-10">
+        <div className={`w-full  ${className}`}>{children}</div>
       </section>
     </>
   );
