@@ -9,10 +9,10 @@ export default function HeroSection() {
     <>
       <AmbientBackground />
       <SectionWrapper className="relative z-10 pt-40 pb-20 px-10 flex flex-col items-center border-x border-[#212121]">
-        <div className="w-full flex flex-col items-center text-center">
+        <div className="w-full flex flex-col items-center text-center gap-[32px]">
           <Badge
             text="Framer Templates"
-            className="mb-8"
+            className="bg-white/20"
             icon={
               <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0L24 12H12V24L0 12H12V0Z" />

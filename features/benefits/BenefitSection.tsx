@@ -11,14 +11,14 @@ export default function BenefitsSection() {
       <AmbientBackground
         flip={false}
         fadeDirection="top"
-        heightClass="h-[160vh]" // dari h-[100vh] → lebih panjang total
-        positionClassName="-top-[100vh] left-0" // dari -top-[35vh] → naik lebih tinggi, nembus ke card row atas
+        heightClass="h-[160vh]"
+        positionClassName="-top-[100vh] left-0"
         objectPosition="object-[80%_70%]"
       />
 
       <SectionWrapper className="relative z-10 w-full flex flex-col gap-[40px] border-x border-[#212121]">
         <div className="flex flex-col items-center pt-[80px] px-[40px] text-center gap-[32px]">
-          <Badge text="BENEFITS" />
+          <Badge text="BENEFITS" className="bg-white/20" />
 
           <SectionHeader
             as="h2"

@@ -9,7 +9,7 @@ interface BenefitCardProps {
 
 export default function BenefitCard({ logos }: BenefitCardProps) {
   return (
-    <div className="w-full h-[432px] border-t border-[#212121] grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#212121]">
+    <div className="w-full min-h-[432px] border-t border-[#212121] grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#212121]">
       <BenefitCardEditor />
       <BenefitCardConversion logos={logos} />
       <BenefitCardTutorial />

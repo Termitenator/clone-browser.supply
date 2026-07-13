@@ -2,7 +2,7 @@ import AutoPlayVideo from "@/component/reusable/AutoPlayVideo";
 
 export default function CardVideoTutorial() {
   return (
-    <div className="relative flex flex-col justify-end p-10 min-h-[450px] overflow-hidden group">
+    <div className="relative flex flex-col justify-end p-10 h-full overflow-hidden group">
       {/* Background Video */}
       <AutoPlayVideo
         src="https://framerusercontent.com/assets/giZNSxxsU70FwAyC41BzhRuSKU.mp4"

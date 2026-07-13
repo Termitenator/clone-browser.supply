@@ -34,7 +34,6 @@ export default function Scroll3DTilt({
           opacity: 1,
           scale,
           transformStyle: "preserve-3d",
-          // KUNCI PERBAIKAN: Ubah poros ke atas
           transformOrigin: "top center",
         }}
         className="w-full will-change-transform">

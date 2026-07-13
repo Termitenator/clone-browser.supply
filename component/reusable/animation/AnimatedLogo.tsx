@@ -20,7 +20,7 @@ export default function AnimatedLogo({ logo, index }: AnimatedLogoProps) {
             : [0.6875, 0.6875, 1, 1, 0.6875],
         }}
         transition={{
-          duration: 2.6,
+          duration: 0.3,
           repeat: Infinity,
           ease: [0.33, 1, 0.68, 1],
           times: [0, 0.2, 0.5, 0.7, 1],

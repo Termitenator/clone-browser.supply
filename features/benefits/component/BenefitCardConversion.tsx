@@ -9,9 +9,9 @@ export default function BenefitCardConversion({
   logos,
 }: BenefitCardConversionProps) {
   return (
-    <div className="flex flex-col divide-y divide-[#212121]">
+    <div className="flex flex-col h-full divide-y divide-[#212121]">
       {/* Bagian Atas */}
-      <div className="flex flex-col p-[20px] gap-[36px]">
+      <div className="flex flex-col flex-1 justify-center p-[20px] gap-[36px]">
         <AnimatedLogoGroup logos={logos} />
 
         <div className="flex flex-col gap-[12px]">
@@ -26,9 +26,9 @@ export default function BenefitCardConversion({
       </div>
 
       {/* Bagian Bawah */}
-      <div className="flex flex-col p-[20px] gap-[20px]">
-        <h3 className="text-sm font-medium text-white leading-relaxed">
-          Building a high-quality website shouldn't cost you a fortune.
+      <div className="flex flex-col flex-1 justify-center p-[20px] gap-[20px]">
+        <h3 className="text-[16px] font-medium text-white leading-relaxed">
+          Building a high-quality website <br /> shouldn't cost you a fortune.
         </h3>
 
         <div className="flex flex-col gap-[16px]">
@@ -43,10 +43,13 @@ export default function BenefitCardConversion({
           </div>
 
           {/* Framer */}
-          <div className="flex flex-col gap-2">
-            <div className="w-3/4 bg-white/10 rounded-md p-3 border border-white/20">
-              <p className="text-white text-sm font-medium">Starting at $99</p>
+          <div className="flex flex-col gap-3">
+            <div className="flex relative overflow-hidden w-[142px] bg-[#ffffff4d] rounded-[4px] py-[8px] px-[12px]">
+              <p className="text-white text-[12px] font-bold font-sans uppercase">
+                Starting at $99
+              </p>
             </div>
+
             <p className="text-[10px] font-semibold tracking-wider text-gray-400 uppercase">
               Framer Template
             </p>

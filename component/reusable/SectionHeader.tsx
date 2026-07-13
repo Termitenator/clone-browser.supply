@@ -51,7 +51,7 @@ export default function SectionHeader({
 
       {description && (
         <p
-          className={`max-w-2xl text-lg md:text-xl text-gray-400 mb-10 leading-relaxed whitespace-pre-line ${align === "center" ? "mx-auto" : ""}`}>
+          className={`max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed whitespace-pre-line ${align === "center" ? "mx-auto" : ""}`}>
           {description}
         </p>
       )}
