@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GlassOverlay from "../ui/GlassOverlay"; // Aktifkan jika Anda menggunakannya
+import GlassOverlay from "../ui/GlassOverlay";
 
 interface AmbientBackgroundProps {
   src?: string;
@@ -10,6 +10,8 @@ interface AmbientBackgroundProps {
   flip?: boolean;
   fadeDirection?: "top" | "bottom";
   positionClassName?: string;
+  scaleClass?: string;
+  rotationClass?: string;
 }
 
 export default function AmbientBackground({
@@ -21,6 +23,8 @@ export default function AmbientBackground({
   flip = true,
   fadeDirection = "bottom",
   positionClassName = "top-0 left-0",
+  scaleClass = "scale-[1.3]",
+  rotationClass = "",
 }: AmbientBackgroundProps) {
   const isBottomFade = fadeDirection === "bottom";
 
@@ -35,7 +39,8 @@ export default function AmbientBackground({
         maskImage: maskGradient,
         WebkitMaskImage: maskGradient,
       }}>
-      <div className="absolute inset-0 opacity-100 mix-blend-screen scale-[1.3]">
+      <div
+        className={`absolute inset-0 opacity-100 mix-blend-screen ${scaleClass} ${rotationClass}`}>
         <Image
           src={src}
           alt={alt}

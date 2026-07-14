@@ -34,10 +34,7 @@ export default function FeatureTemplates() {
   return (
     <section className="relative w-full flex flex-col bg-[#0a0a0a]">
       <SectionWrapper className="relative z-10 w-full flex flex-col border-x border-[#212121]">
-        {/* 1. Header */}
         <TemplateHeader />
-
-        {/* 2. Garis Horizontal pemisah Header dan Grid */}
         <div className="w-full border-t border-[#212121]" />
 
         {/* 3. Grid Container dengan Divide */}

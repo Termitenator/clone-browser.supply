@@ -32,7 +32,6 @@ export default function TemplateCard({
         />
       </motion.div>
 
-      {/* Area Judul & Badge */}
       <div className="flex items-center gap-3 mb-3">
         <h3 className="text-2xl font-serif text-white">{title}</h3>
         {isNew && (

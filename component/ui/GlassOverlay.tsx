@@ -19,7 +19,7 @@ export default function GlassOverlay({
           backdropFilter: `blur(${blur}px)`,
           WebkitBackdropFilter: `blur(${blur}px)`,
           background: `rgba(255,255,255,${tintOpacity})`,
-          transform: "translateZ(0)", // Memaksa layer baru untuk performa lebih baik
+          transform: "translateZ(0)",
           willChange: "transform",
         }}
       />

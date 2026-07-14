@@ -4,7 +4,7 @@ interface ProcessCardProps {
   step: string;
   title: string;
   description: string;
-  bgNode: React.ReactNode; // Menerima elemen UI utuh, bukan cuma URL teks
+  bgNode: React.ReactNode;
 }
 
 export default function ProcessCard({
@@ -14,8 +14,7 @@ export default function ProcessCard({
   bgNode,
 }: ProcessCardProps) {
   return (
-    <div className="relative flex flex-col p-[40px] h-full min-h-[450px] md:min-h-[550px] overflow-hidden group">
-      {/* Background Layer (Flexible) */}
+    <div className="relative flex flex-col p-[40px] h-full min-h-[420px] md:min-h-[550px] overflow-hidden group">
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         {bgNode}
       </div>

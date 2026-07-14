@@ -4,6 +4,7 @@ import { interDisplay, gambetta } from "@/lib/fonts";
 import "./globals.css";
 import NoiseOverlay from "@/component/ui/NoiseOverlay";
 import SmoothScroll from "@/component/reusable/scroll/SmoothScroll";
+import Footer from "@/component/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +20,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${interDisplay.variable} ${gambetta.variable} h-full antialiased scroll-smooth`}>
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-white">
         <NoiseOverlay />
         <Navbar />
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <div className="flex flex-col min-h-screen">
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </SmoothScroll>
       </body>
     </html>
   );

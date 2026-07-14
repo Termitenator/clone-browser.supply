@@ -39,13 +39,13 @@ export default function SectionHeader({
 
   return (
     <div
-      className={`flex flex-col w-full ${
+      className={`flex flex-col w-full gap-3 ${
         align === "center"
           ? "items-center text-center"
           : "items-start text-left"
       } ${className}`}>
       <Tag
-        className={`${titleClassName} leading-[1.1] font-sans font-medium text-white mb-6 tracking-tight`}>
+        className={`${titleClassName} leading-[1.1] font-sans font-medium text-white tracking-tight`}>
         {renderTitle(title)}
       </Tag>
 

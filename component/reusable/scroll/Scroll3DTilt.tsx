@@ -20,7 +20,6 @@ export default function Scroll3DTilt({
   });
 
   const rotateX = useTransform(scrollYProgress, [0, 1], [18, 0]);
-  // const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
   const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
 
   return (

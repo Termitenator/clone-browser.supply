@@ -20,7 +20,7 @@ export default function AnimatedLogo({ logo, index }: AnimatedLogoProps) {
             : [0.6875, 0.6875, 1, 1, 0.6875],
         }}
         transition={{
-          duration: 0.3,
+          duration: 2,
           repeat: Infinity,
           ease: [0.33, 1, 0.68, 1],
           times: [0, 0.2, 0.5, 0.7, 1],
@@ -31,8 +31,6 @@ export default function AnimatedLogo({ logo, index }: AnimatedLogoProps) {
     </div>
   );
 }
-
-/* Wrapper kalau mau langsung render sekumpulan logo */
 export function AnimatedLogoGroup({ logos }: { logos: string[] }) {
   return (
     <div className="flex items-center gap-3">

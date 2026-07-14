@@ -3,7 +3,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function AnimatedStepOneBg() {
+interface AnimatedStepOneBgProps {
+  overscanX?: string;
+  overscanWidth?: string;
+  spread?: boolean;
+}
+
+export default function AnimatedStepOneBg({
+  overscanX = "-15%",
+  overscanWidth = "150%",
+  spread = false,
+}: AnimatedStepOneBgProps) {
   const images = [
     "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
     "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
@@ -13,20 +23,30 @@ export default function AnimatedStepOneBg() {
 
   return (
     <div
-      className="absolute inset-0 w-full h-full overflow-hidden group-hover:scale-105 transition-transform duration-700 [transform:perspective(1200px)] pointer-events-none"
+      className="absolute inset-0 w-full h-full overflow-hidden group-hover:scale-105 transition-transform duration-700 pointer-events-none"
       style={{
         WebkitMaskImage: "linear-gradient(#0000 4%, #000 100%)",
         maskImage: "linear-gradient(#0000 4%, #000 100%)",
+        perspective: "1200px",
+        perspectiveOrigin: "50% 50%",
       }}>
-      <div className="absolute top-[-10%] left-[-15%] w-[150%] h-[150%] flex gap-4 rotate-[16deg]">
+      <div
+        className={`absolute top-[-10%] flex rotate-[16deg] ${
+          spread ? "gap-6" : "gap-4"
+        }`}
+        style={{
+          left: overscanX,
+          width: overscanWidth,
+          height: "150%",
+          transformStyle: "preserve-3d",
+          transform: "rotate(16deg) rotateX(8deg)",
+        }}>
         <motion.div
           animate={{ y: ["-50%", "0%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 20,
-          }}
-          className="flex flex-col gap-4 w-[240px] will-change-transform">
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          className={`flex flex-col gap-4 will-change-transform ${
+            spread ? "flex-1" : "w-[240px] shrink-0"
+          }`}>
           {duplicatedImages.map((src, idx) => (
             <div
               key={idx}
@@ -43,12 +63,10 @@ export default function AnimatedStepOneBg() {
 
         <motion.div
           animate={{ y: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 25,
-          }}
-          className="flex flex-col gap-4 w-[240px] -translate-y-16 will-change-transform">
+          transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+          className={`flex flex-col gap-4 -translate-y-16 will-change-transform ${
+            spread ? "flex-1" : "w-[240px] shrink-0"
+          }`}>
           {duplicatedImages.map((src, idx) => (
             <div
               key={idx}

@@ -10,7 +10,6 @@ export default function BenefitCardConversion({
 }: BenefitCardConversionProps) {
   return (
     <div className="flex flex-col h-full divide-y divide-[#212121]">
-      {/* Bagian Atas */}
       <div className="flex flex-col flex-1 justify-center p-[20px] gap-[36px]">
         <AnimatedLogoGroup logos={logos} />
 
@@ -25,14 +24,12 @@ export default function BenefitCardConversion({
         </div>
       </div>
 
-      {/* Bagian Bawah */}
       <div className="flex flex-col flex-1 justify-center p-[20px] gap-[20px]">
         <h3 className="text-[16px] font-medium text-white leading-relaxed">
           Building a high-quality website <br /> shouldn't cost you a fortune.
         </h3>
 
         <div className="flex flex-col gap-[16px]">
-          {/* Agency */}
           <div className="flex flex-col gap-2">
             <div className="w-full bg-[#111] rounded-md p-3 border border-white/5">
               <p className="text-white text-sm font-medium">$5,000 - $20,000</p>

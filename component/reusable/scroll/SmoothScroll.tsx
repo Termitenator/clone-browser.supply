@@ -2,7 +2,6 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { div } from "motion/react-client";
 
 export default function SmoothScroll({
   children,
