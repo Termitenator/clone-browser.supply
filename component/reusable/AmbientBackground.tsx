@@ -40,14 +40,16 @@ export default function AmbientBackground({
         WebkitMaskImage: maskGradient,
       }}>
       <div
-        className={`absolute inset-0 opacity-100 mix-blend-screen ${scaleClass} ${rotationClass}`}>
+        className={`absolute inset-0 opacity-90 mix-blend-screen ${scaleClass} ${rotationClass}`}>
         <Image
           src={src}
           alt={alt}
           fill
           priority={priority}
           sizes="100vw"
-          className={`object-cover ${flip ? "scale-x-[-1]" : ""} ${objectPosition}`}
+          className={`object-cover saturate-150 contrast-125 brightness-75 ${
+            flip ? "scale-x-[-1]" : ""
+          } ${objectPosition}`}
         />
       </div>
 
@@ -55,13 +57,13 @@ export default function AmbientBackground({
 
       {isBottomFade ? (
         <>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-white/50 backdrop-blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-white/20 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/60 to-[#0a0a0a]" />
         </>
       ) : (
         <>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-white/50 backdrop-blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-white/20 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#0a0a0a]/60 to-[#0a0a0a]" />
         </>
       )}
     </div>

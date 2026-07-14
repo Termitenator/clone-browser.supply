@@ -1,6 +1,7 @@
-import Image from "next/image";
 import SectionWrapper from "@/component/reusable/SectionWrapper";
 import Link from "next/link";
+import AnimatedCreatorBadge from "../reusable/animation/AnimatedCreatorBadge";
+
 export default function Footer() {
   return (
     <footer className="w-full flex flex-col items-center">
@@ -81,25 +82,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* --- Bagian Bawah Footer (Copyright & Credit) --- */}
         <div className="border-t border-[#212121] px-10 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[13px] text-gray-500">
             © 2026 browser.supply. <span className="text-white">Framer</span>{" "}
             website templates
           </p>
 
-          <div className="flex items-center gap-3 text-[13px] text-gray-500">
-            <span>Created by</span>
-            {/* Ganti src dengan foto profil atau path yang sesuai */}
-            <Image
-              src="https://i.pravatar.cc/150?u=ramish"
-              alt="Ramish Aziz"
-              width={24}
-              height={24}
-              className="rounded-full object-cover bg-neutral-800"
-            />
-            <span className="text-gray-400">Ramish Aziz</span>
-          </div>
+          <AnimatedCreatorBadge />
         </div>
       </SectionWrapper>
     </footer>
