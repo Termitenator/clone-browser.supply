@@ -10,22 +10,58 @@ import PricingSection from "@/features/pricing/PricingSection";
 import QuizSection from "@/features/quiz/QuizSection";
 import FounderSection from "@/features/founder/FounderSection";
 import TestimonialSection from "@/features/testimonials/TestimonialSection";
+import AnimatedReveal from "@/component/reusable/animation/AnimatedReveal";
 
 export default function Home() {
   return (
     <main>
-      <HeroSection />
-      <ProductShowcase />
-      <StatsSection />
-      <FeatureTemplates />
-      <BenefitsSection />
-      <HighlightSection />
-      <ProcessSection />
-      <CustomerSuccessSection />
-      <PricingSection />
-      <QuizSection />
-      <FounderSection />
-      <TestimonialSection />
+      <AnimatedReveal>
+        <HeroSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <ProductShowcase />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <StatsSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <FeatureTemplates />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <BenefitsSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <HighlightSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <ProcessSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <CustomerSuccessSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <PricingSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <QuizSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <FounderSection />
+      </AnimatedReveal>
+
+      <AnimatedReveal>
+        <TestimonialSection />
+      </AnimatedReveal>
     </main>
   );
 }

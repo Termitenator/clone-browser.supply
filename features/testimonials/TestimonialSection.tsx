@@ -4,7 +4,6 @@ import AnimatedButton from "@/component/reusable/animation/AnimatedButton";
 import InfiniteScrollRow from "@/component/reusable/scroll/InfiniteScrollRow";
 import AmbientBackground from "@/component/reusable/AmbientBackground";
 
-// --- Mock Data ---
 const row1Data = [
   {
     id: 1,
@@ -89,7 +88,6 @@ const row3Data = [
     quote: "The best purchase I've made this year for my business.",
   },
 ];
-// -----------------
 
 export default function TestimonialSection() {
   return (
@@ -105,7 +103,6 @@ export default function TestimonialSection() {
       />
       <SectionWrapper className="relative z-10 w-full border-x border-[#212121]">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end p-10 md:p-12 border-b border-[#212121] gap-8">
-          {/* Judul & Deskripsi (Kiri) */}
           <div className="max-w-xl">
             <SectionHeader
               as="h2"
@@ -117,7 +114,6 @@ export default function TestimonialSection() {
             />
           </div>
 
-          {/* CTA Button (Kanan) */}
           <div className="flex-shrink-0">
             <AnimatedButton
               title="See real customer websites →"

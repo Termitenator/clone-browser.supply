@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="w-full flex flex-col items-center">
       <SectionWrapper className="w-full border-x border-b border-[#212121]">
-        <div className="flex flex-col md:flex-row justify-between items-start p-10 md:p-12 gap-12 md:gap-8">
-          <div className="flex flex-col max-w-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start p-10 md:p-12 gap-12 md:gap-8">
+          <div className="flex flex-col max-w-sm items-center md:items-start text-center md:text-left">
             <Link href="/" className="font-serif text-2xl text-white mb-4">
               Browser.supply
             </Link>
@@ -17,7 +17,7 @@ export default function Footer() {
               template.
             </p>
 
-            <div className="flex items-center gap-5 text-white">
+            <div className="flex items-center justify-center md:justify-start gap-5 text-white">
               <a
                 href="#"
                 className="hover:text-white transition-colors"
@@ -36,9 +36,8 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-x-16 gap-y-6">
-            <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-16 md:gap-y-6">
+            <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
               <Link
                 href="#"
                 className="text-[14px] font-medium text-white hover:text-gray-300 transition-colors">
@@ -61,8 +60,7 @@ export default function Footer() {
               </Link>
             </div>
 
-            {/* Kolom Nav 2 */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
               <Link
                 href="#"
                 className="text-[14px] font-medium text-white hover:text-gray-300 transition-colors">
@@ -81,8 +79,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="border-t border-[#212121] px-10 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-[#212121] px-10 md:px-12 py-8 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 text-center md:text-left">
           <p className="text-[13px] text-gray-500">
             © 2026 browser.supply. <span className="text-white">Framer</span>{" "}
             website templates

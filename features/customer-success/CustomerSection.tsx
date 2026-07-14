@@ -11,7 +11,7 @@ export default function CustomerSuccessSection() {
         <div className="flex flex-col justify-center h-full pl-[40px] pr-[40px] py-[60px] md:py-[80px] gap-[32px]">
           <Badge
             text="CUSTOMER SUCCESS"
-            className="bg-[radial-gradient(86%_150%_at_47%,#fff0_0%,#fff3_100%)] border-white/5 text-gray-400"
+            className="bg-[radial-gradient(86%_150%_at_47%,#fff0_0%,#fff3_100%)] border-white/5 text-gray-400 self-start"
           />
 
           <div className="flex flex-col gap-3">
@@ -49,14 +49,14 @@ export default function CustomerSuccessSection() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 mt-2">
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-2 w-full">
             <AnimatedButton
               title="View template Matt used"
-              className="bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
+              className="w-full md:w-auto flex justify-center bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
             <AnimatedButton
               title="View other customers' sites"
-              className="bg-[#1a1a1a] hover:bg-[#252525] text-white border border-white/5 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
+              className="w-full md:w-auto flex justify-center bg-[#1a1a1a] hover:bg-[#252525] text-white border border-white/5 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
           </div>
         </div>

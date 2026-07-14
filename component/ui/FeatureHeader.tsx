@@ -17,7 +17,7 @@ export default function TemplateHeader() {
 
       <AnimatedButton
         title="View all ->"
-        className="bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
+        className="w-full md:w-auto flex justify-center bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
       />
     </div>
   );

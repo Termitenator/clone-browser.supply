@@ -1,9 +1,8 @@
-// component/sections/PricingSection.tsx
 import React from "react";
 import SectionWrapper from "@/component/reusable/SectionWrapper";
 import SectionHeader from "@/component/reusable/SectionHeader";
 import Badge from "@/component/reusable/Badge";
-import PricingCard, { PricingFeature } from "@/component/ui/PricingCard"; // Pastikan path-nya benar
+import PricingCard, { PricingFeature } from "@/component/ui/PricingCard";
 
 import {
   AppWindow,
@@ -26,7 +25,6 @@ const FramerIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-// Data Fitur
 const singleFeatures: PricingFeature[] = [
   { Icon: AppWindow, text: "Instant access to chosen template" },
   { Icon: RefreshCw, text: "Lifetime template updates" },

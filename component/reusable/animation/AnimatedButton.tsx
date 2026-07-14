@@ -1,4 +1,3 @@
-// component/reusable/animation/AnimatedButton.tsx
 interface AnimatedButtonProps {
   title: string;
   onClick?: () => void;

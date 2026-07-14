@@ -47,7 +47,7 @@ export default function AmbientBackground({
           fill
           priority={priority}
           sizes="100vw"
-          className={`object-cover saturate-150 contrast-125 brightness-75 ${
+          className={`object-cover saturate-150 contrast-150 brightness-100 ${
             flip ? "scale-x-[-1]" : ""
           } ${objectPosition}`}
         />
@@ -57,8 +57,8 @@ export default function AmbientBackground({
 
       {isBottomFade ? (
         <>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-white/20 backdrop-blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/60 to-[#0a0a0a]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-white/40 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
         </>
       ) : (
         <>

@@ -9,7 +9,6 @@ export default function ProcessSection() {
   return (
     <section className="relative w-full flex flex-col bg-[#0a0a0a]">
       <SectionWrapper className="relative z-10 w-full flex flex-col gap-[40px] border-x border-[#212121]">
-        {/* ================= HEADER SECTION ================= */}
         <div className="flex flex-col items-center pt-[80px] px-[40px] text-center gap-[32px]">
           <Badge
             text="PROCESS"
@@ -27,7 +26,6 @@ export default function ProcessSection() {
           />
         </div>
 
-        {/* ================= GRID CARDS SECTION ================= */}
         <div className="w-full border-t border-[#212121] grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#212121]">
           <ProcessCard
             step="STEP 1"

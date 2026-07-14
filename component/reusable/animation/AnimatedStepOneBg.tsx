@@ -23,7 +23,7 @@ export default function AnimatedStepOneBg({
 
   return (
     <div
-      className="absolute inset-0 w-full h-full overflow-hidden group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+      className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
       style={{
         WebkitMaskImage: "linear-gradient(#0000 4%, #000 100%)",
         maskImage: "linear-gradient(#0000 4%, #000 100%)",
@@ -31,7 +31,7 @@ export default function AnimatedStepOneBg({
         perspectiveOrigin: "50% 50%",
       }}>
       <div
-        className={`absolute top-[-10%] flex rotate-[16deg] ${
+        className={`absolute top-[-10%] flex rotate-[8deg] md:rotate-[16deg] ${
           spread ? "gap-6" : "gap-4"
         }`}
         style={{
@@ -39,8 +39,10 @@ export default function AnimatedStepOneBg({
           width: overscanWidth,
           height: "150%",
           transformStyle: "preserve-3d",
-          transform: "rotate(16deg) rotateX(8deg)",
+          transform:
+            "rotate(16deg) rotateX(4deg) md:rotate(16deg) md:rotateX(8deg)",
         }}>
+        {/* Konten tetap sama */}
         <motion.div
           animate={{ y: ["-50%", "0%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}

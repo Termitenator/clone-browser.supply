@@ -40,8 +40,6 @@ export default function TemplateCard({
           </span>
         )}
       </div>
-
-      {/* Meta (Kategori & Harga) */}
       <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest flex items-center gap-3">
         {category}
         <span className="text-gray-600">•</span>

@@ -3,14 +3,13 @@ import TemplateHeader from "@/component/ui/FeatureHeader";
 import TemplateCard from "@/component/ui/FeatureCard";
 
 export default function FeatureTemplates() {
-  // Data dummy sesuai screenshot
   const templates = [
     {
       title: "Selene",
       category: "AI SAAS",
       price: "$129 USD",
       image:
-        "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg", // Ganti dengan URL gambar asli
+        "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
       isNew: true,
     },
     {
@@ -37,7 +36,6 @@ export default function FeatureTemplates() {
         <TemplateHeader />
         <div className="w-full border-t border-[#212121]" />
 
-        {/* 3. Grid Container dengan Divide */}
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#212121]">
           {templates.map((template, index) => (
             <TemplateCard
@@ -52,7 +50,6 @@ export default function FeatureTemplates() {
         </div>
       </SectionWrapper>
 
-      {/* Garis batas bawah yang menembus ke ujung layar */}
       <div className="w-full border-b border-[#212121] relative z-10" />
     </section>
   );

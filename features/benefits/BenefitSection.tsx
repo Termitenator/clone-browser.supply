@@ -35,8 +35,6 @@ export default function BenefitsSection() {
 
         <BenefitCard logos={logos} />
       </SectionWrapper>
-
-      {/* Garis batas penutup bawah section yang menembus layar */}
       <div className="w-full border-b border-[#212121] relative z-10" />
     </section>
   );
