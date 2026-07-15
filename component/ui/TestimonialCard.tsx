@@ -5,12 +5,14 @@ export interface TestimonialType {
   quote: string;
   name: string;
   avatar: string;
+  rating?: number;
 }
 
 export default function TestimonialCard({
   quote,
   name,
   avatar,
+  rating = 5,
 }: TestimonialType) {
   return (
     <div className="w-[350px] md:w-[400px] h-full flex-shrink-0 flex flex-col justify-between p-8 md:p-10 border-r border-[#212121] bg-transparent gap-8">
@@ -22,7 +24,7 @@ export default function TestimonialCard({
           {quote}
         </h5>
         <div className="flex gap-1 text-white">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(rating)].map((_, i) => (
             <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
             </svg>

@@ -52,10 +52,12 @@ export default function CustomerSuccessSection() {
           <div className="flex flex-col md:flex-row items-center gap-4 mt-2 w-full">
             <AnimatedButton
               title="View template Matt used"
+              href="/template"
               className="w-full md:w-auto flex justify-center bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
             <AnimatedButton
               title="View other customers' sites"
+              href="/live-example"
               className="w-full md:w-auto flex justify-center bg-[#1a1a1a] hover:bg-[#252525] text-white border border-white/5 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
           </div>

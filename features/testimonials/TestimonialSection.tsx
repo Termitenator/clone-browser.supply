@@ -3,93 +3,32 @@ import SectionHeader from "@/component/reusable/SectionHeader";
 import AnimatedButton from "@/component/reusable/animation/AnimatedButton";
 import InfiniteScrollRow from "@/component/reusable/scroll/InfiniteScrollRow";
 import AmbientBackground from "@/component/reusable/AmbientBackground";
+import { TestimonialType } from "@/component/ui/TestimonialCard";
+import { getCustomers } from "@/lib/queries/customer";
+function splitIntoRows(
+  items: TestimonialType[],
+  rowCount: number,
+): TestimonialType[][] {
+  const rows: TestimonialType[][] = Array.from({ length: rowCount }, () => []);
+  items.forEach((item, index) => {
+    rows[index % rowCount].push(item);
+  });
+  return rows;
+}
 
-const row1Data = [
-  {
-    id: 1,
-    name: "Nic",
-    avatar: "https://i.pravatar.cc/150?u=nic",
-    quote:
-      "This Framer template is excellent at elevating your online presence!",
-  },
-  {
-    id: 2,
-    name: "Widya",
-    avatar: "https://i.pravatar.cc/150?u=wid",
-    quote:
-      "Beautiful design and is easy to set up! The tutorial helped me a lot.",
-  },
-  {
-    id: 3,
-    name: "Dávid",
-    avatar: "https://i.pravatar.cc/150?u=dav",
-    quote: "Super easy to use and customise and also beautifully designed.",
-  },
-  {
-    id: 4,
-    name: "Renan",
-    avatar: "https://i.pravatar.cc/150?u=ren",
-    quote: "Very nice templates, easy going to setup and navigate.",
-  },
-];
+export default async function TestimonialSection() {
+  const customers = await getCustomers();
 
-const row2Data = [
-  {
-    id: 5,
-    name: "John",
-    avatar: "https://i.pravatar.cc/150?u=joh",
-    quote: "The templates is so well designed and has a unique look to them.",
-  },
-  {
-    id: 6,
-    name: "Sarah",
-    avatar: "https://i.pravatar.cc/150?u=sar",
-    quote:
-      "The design is clean, easy to customize, professional, and versatile.",
-  },
-  {
-    id: 7,
-    name: "Mike",
-    avatar: "https://i.pravatar.cc/150?u=mik",
-    quote:
-      "The template is excellent. It is super easy to work and very beautiful.",
-  },
-  {
-    id: 8,
-    name: "Anna",
-    avatar: "https://i.pravatar.cc/150?u=ann",
-    quote: "Intentional and distinct design makes them fun to look at.",
-  },
-];
+  const testimonials: TestimonialType[] = customers.map((customer) => ({
+    id: customer.id,
+    name: customer.name,
+    avatar: customer.avatarUrl,
+    quote: customer.testimonial,
+    rating: customer.rating,
+  }));
 
-const row3Data = [
-  {
-    id: 9,
-    name: "Paul",
-    avatar: "https://i.pravatar.cc/150?u=pau",
-    quote: "An absolute game changer for my personal portfolio.",
-  },
-  {
-    id: 10,
-    name: "Emma",
-    avatar: "https://i.pravatar.cc/150?u=emm",
-    quote: "I love the micro-interactions and the dark mode aesthetic.",
-  },
-  {
-    id: 11,
-    name: "Liam",
-    avatar: "https://i.pravatar.cc/150?u=lia",
-    quote: "Saved me hundreds of hours of design and development time.",
-  },
-  {
-    id: 12,
-    name: "Chloe",
-    avatar: "https://i.pravatar.cc/150?u=chl",
-    quote: "The best purchase I've made this year for my business.",
-  },
-];
+  const [row1Data, row2Data, row3Data] = splitIntoRows(testimonials, 3);
 
-export default function TestimonialSection() {
   return (
     <section className="relative w-full flex flex-col bg-[#0a0a0a]">
       <AmbientBackground
@@ -117,6 +56,7 @@ export default function TestimonialSection() {
           <div className="flex-shrink-0">
             <AnimatedButton
               title="See real customer websites →"
+              href="/live-example"
               className="bg-white hover:bg-gray-200 text-black px-6 py-4 rounded-xl text-sm md:text-base font-semibold transition-colors"
             />
           </div>

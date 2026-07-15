@@ -3,7 +3,7 @@ import SectionHeader from "@/component/reusable/SectionHeader";
 import Badge from "@/component/reusable/Badge";
 import ProcessCard from "@/component/ui/ProcessCard";
 import AutoplayVideo from "@/component/reusable/AutoPlayVideo";
-import AnimatedStepOneBg from "@/component/reusable/animation/AnimatedStepOneBg";
+import AnimatedStepOneBgServer from "@/component/reusable/animation/AnimatedStepOneBgServer";
 
 export default function ProcessSection() {
   return (
@@ -31,7 +31,7 @@ export default function ProcessSection() {
             step="STEP 1"
             title="Select a template"
             description="Choose from the range of expert-crafted templates."
-            bgNode={<AnimatedStepOneBg />}
+            bgNode={<AnimatedStepOneBgServer />}
           />
           <ProcessCard
             step="STEP 2"

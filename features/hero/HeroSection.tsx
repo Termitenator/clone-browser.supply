@@ -32,6 +32,7 @@ export default function HeroSection() {
 
           <AnimatedButton
             title="Browse templates"
+            href="/template"
             className="bg-white hover:bg-gray-200 text-black px-7 py-4 rounded-xl text-base"
           />
         </div>

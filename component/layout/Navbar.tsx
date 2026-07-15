@@ -20,10 +20,10 @@ export default function Navbar() {
   }, [isOpen]);
 
   const mobileNavLinks = [
-    { name: "Templates", href: "#templates" },
-    { name: "Live examples", href: "#examples" },
-    { name: "Support", href: "#support" },
-    { name: "Blog", href: "#blog" },
+    { name: "Templates", href: "/templates" },
+    { name: "Live examples", href: "/examples" },
+    { name: "Support", href: "/support" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (
@@ -32,7 +32,6 @@ export default function Navbar() {
         <GlassBlur />
 
         <div className="relative px-6 md:px-10 py-5 max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo Area */}
           <div className="flex items-center gap-2 relative z-[100]">
             <Image
               src="https://framerusercontent.com/images/IJzpbfJQNym0HsznaxMArf71yI.png"
@@ -48,15 +47,13 @@ export default function Navbar() {
             />
           </div>
 
-          {/* DESKTOP NAV (Sembunyi di Mobile) */}
           <nav className="hidden md:flex items-center gap-8">
-            <AnimatedLink href="#templates" title="Templates" />
-            <AnimatedLink href="#examples" title="Live examples" />
-            <AnimatedLink href="#support" title="Support" />
-            <AnimatedLink href="#blog" title="Blog" />
+            <AnimatedLink href="/templates" title="Templates" />
+            <AnimatedLink href="/live-example" title="Live examples" />
+            <AnimatedLink href="/support" title="Support" />
+            <AnimatedLink href="/blog" title="Blog" />
           </nav>
 
-          {/* DESKTOP SOCIAL & BUTTON (Sembunyi di Mobile) */}
           <div className="hidden md:flex items-center gap-5 text-white relative z-[100]">
             <Link href="#" className="transition-colors hover:text-gray-300">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">

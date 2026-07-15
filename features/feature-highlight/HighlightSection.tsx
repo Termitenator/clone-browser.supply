@@ -37,10 +37,12 @@ export default function HighlightSection() {
           <div className="flex flex-col md:flex-row items-center gap-4 w-full">
             <AnimatedButton
               title="Browse templates"
+              href="/template"
               className="w-full md:w-auto flex justify-center bg-white hover:bg-gray-200 text-black px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
             <AnimatedButton
               title="Explore Framer"
+              href="https://www.framer.com/?via=ramishdesign&dub_id=4KXTnkYGTSwIg7hh"
               className="w-full md:w-auto flex justify-center bg-[#1a1a1a] hover:bg-[#252525] text-white border border-white/5 px-6 py-3.5 rounded-xl text-sm font-semibold transition-colors"
             />
           </div>

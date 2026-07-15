@@ -8,15 +8,20 @@ interface TemplateCardProps {
   category: string;
   price: string;
   image: string;
-  isNew?: boolean;
+  badge?: "NEW" | "POPULAR" | null;
 }
+
+const badgeStyles: Record<string, string> = {
+  NEW: "bg-green-900/30 text-green-400 border-green-500/20",
+  POPULAR: "bg-purple-900/30 text-purple-400 border-purple-500/20",
+};
 
 export default function TemplateCard({
   title,
   category,
   price,
   image,
-  isNew = false,
+  badge = null,
 }: TemplateCardProps) {
   return (
     <div className="flex flex-col p-10 cursor-pointer group hover:bg-white/[0.02] transition-colors">
@@ -34,9 +39,10 @@ export default function TemplateCard({
 
       <div className="flex items-center gap-3 mb-3">
         <h3 className="text-2xl font-serif text-white">{title}</h3>
-        {isNew && (
-          <span className="text-[10px] font-bold tracking-wider uppercase bg-green-900/30 text-green-400 px-2 py-1 rounded border border-green-500/20">
-            NEW
+        {badge && (
+          <span
+            className={`text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded border ${badgeStyles[badge]}`}>
+            {badge}
           </span>
         )}
       </div>

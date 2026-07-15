@@ -4,21 +4,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface AnimatedStepOneBgProps {
+  images: string[];
   overscanX?: string;
   overscanWidth?: string;
   spread?: boolean;
 }
 
 export default function AnimatedStepOneBg({
+  images,
   overscanX = "-15%",
   overscanWidth = "150%",
   spread = false,
 }: AnimatedStepOneBgProps) {
-  const images = [
-    "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
-    "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
-    "https://framerusercontent.com/images/w2WvXCCgVxTOq3pvXBwZjgntU.jpg",
-  ];
   const duplicatedImages = [...images, ...images];
 
   return (
@@ -42,7 +39,6 @@ export default function AnimatedStepOneBg({
           transform:
             "rotate(16deg) rotateX(4deg) md:rotate(16deg) md:rotateX(8deg)",
         }}>
-        {/* Konten tetap sama */}
         <motion.div
           animate={{ y: ["-50%", "0%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
