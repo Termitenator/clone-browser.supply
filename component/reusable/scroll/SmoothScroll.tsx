@@ -3,19 +3,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-function useIsTouchDevice() {
-  const [isTouch, setIsTouch] = useState(true);
-  useEffect(() => {
-    const check =
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      window.matchMedia("(pointer: coarse)").matches;
-    setIsTouch(check);
-  }, []);
-
-  return isTouch;
-}
-
 export default function SmoothScroll({
   children,
 }: {
@@ -23,18 +10,29 @@ export default function SmoothScroll({
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
-  const isTouch = useIsTouchDevice();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (!contentRef.current || isTouch) return;
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    if (!contentRef.current) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
       setContentHeight(entries[0].contentRect.height);
     });
 
     resizeObserver.observe(contentRef.current);
-    return () => resizeObserver.disconnect();
-  }, [isTouch]);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   const { scrollY } = useScroll();
 
@@ -47,7 +45,7 @@ export default function SmoothScroll({
 
   const y = useTransform(smoothProgress, (value) => -value);
 
-  if (isTouch) {
+  if (isMobile) {
     return <div className="w-full flex flex-col">{children}</div>;
   }
 
@@ -57,8 +55,8 @@ export default function SmoothScroll({
 
       <motion.div
         ref={contentRef}
-        style={{ y, willChange: "transform" }}
-        className="fixed top-0 left-0 w-full flex flex-col">
+        style={{ y }}
+        className="fixed top-0 left-0 w-full flex flex-col will-change-transform">
         {children}
       </motion.div>
     </>
