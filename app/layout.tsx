@@ -18,14 +18,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interDisplay.variable} ${gambetta.variable} h-full antialiased scroll-smooth`}>
-      <body className="min-h-full flex flex-col font-sans bg-[#0a0a0a] text-white">
+      className={`${interDisplay.variable} ${gambetta.variable} antialiased`}>
+      <body className="m-0 min-h-screen w-full overflow-x-hidden bg-[#0a0a0a] font-sans text-white">
         <Navbar />
+
         <SmoothScroll>
-          <div className="flex flex-col min-h-screen">
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
+          <main>{children}</main>
+          <Footer />
         </SmoothScroll>
       </body>
     </html>

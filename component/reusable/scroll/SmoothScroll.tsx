@@ -10,16 +10,8 @@ export default function SmoothScroll({
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
     if (!contentRef.current) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
@@ -27,11 +19,7 @@ export default function SmoothScroll({
     });
 
     resizeObserver.observe(contentRef.current);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-      resizeObserver.disconnect();
-    };
+    return () => resizeObserver.disconnect();
   }, []);
 
   const { scrollY } = useScroll();
@@ -45,10 +33,6 @@ export default function SmoothScroll({
 
   const y = useTransform(smoothProgress, (value) => -value);
 
-  if (isMobile) {
-    return <div className="w-full flex flex-col">{children}</div>;
-  }
-
   return (
     <>
       <div style={{ height: contentHeight }} />
@@ -56,7 +40,7 @@ export default function SmoothScroll({
       <motion.div
         ref={contentRef}
         style={{ y }}
-        className="fixed top-0 left-0 w-full flex flex-col will-change-transform">
+        className="fixed top-0 left-0 w-full flex flex-col">
         {children}
       </motion.div>
     </>
