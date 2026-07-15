@@ -1,7 +1,24 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useMotionValue,
+  useTransform,
+  useAnimationFrame,
+} from "framer-motion";
+
+function useIsTouchDevice() {
+  const [isTouch, setIsTouch] = useState(false);
+  useEffect(() => {
+    setIsTouch(
+      window.matchMedia("(pointer: coarse)").matches ||
+        "ontouchstart" in window,
+    );
+  }, []);
+  return isTouch;
+}
 
 export default function SmoothScroll({
   children,
@@ -10,6 +27,7 @@ export default function SmoothScroll({
 }) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
+  const isTouch = useIsTouchDevice();
 
   useEffect(() => {
     if (!contentRef.current) return;
@@ -24,14 +42,19 @@ export default function SmoothScroll({
 
   const { scrollY } = useScroll();
 
-  const smoothProgress = useSpring(scrollY, {
-    mass: 0.1,
-    stiffness: 100,
-    damping: 20,
-    restDelta: 0.001,
+  const smoothY = useMotionValue(0);
+  const displayY = useTransform(smoothY, (v) => -v);
+
+  useAnimationFrame(() => {
+    const current = smoothY.get();
+    const target = scrollY.get();
+    const ease = isTouch ? 1 : 0.12;
+    smoothY.set(current + (target - current) * ease);
   });
 
-  const y = useTransform(smoothProgress, (value) => -value);
+  if (isTouch) {
+    return <div className="w-full">{children}</div>;
+  }
 
   return (
     <>
@@ -39,8 +62,11 @@ export default function SmoothScroll({
 
       <motion.div
         ref={contentRef}
-        style={{ y }}
-        className="fixed top-0 left-0 w-full flex flex-col">
+        style={{
+          y: displayY,
+          willChange: "transform",
+        }}
+        className="fixed top-0 left-0 right-0 w-full flex flex-col">
         {children}
       </motion.div>
     </>
